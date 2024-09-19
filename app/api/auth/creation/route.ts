@@ -30,5 +30,9 @@ export async function GET() {
     });
   }
 
-  return redirect("http://localhost:3000/dashboard");
+  return redirect(
+    process.env.NODE_ENV === "production"
+      ? "https://saas-application-one.vercel.app/dashboard"
+      : "http://localhost:3000/dashboard"
+  );
 }

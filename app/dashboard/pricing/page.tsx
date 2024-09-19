@@ -49,7 +49,10 @@ async function Page(props: Props) {
 
     const session = await stripe.billingPortal.sessions.create({
       customer: data?.User?.customerId as string,
-      return_url: `http://localhost:3000/dashboard/pricing`,
+      return_url:
+        process.env.NODE_ENV === "production"
+          ? "https://saas-application-one.vercel.app/dashboard/pricing"
+          : `http://localhost:3000/dashboard/pricing`,
     });
 
     return redirect(session.url);

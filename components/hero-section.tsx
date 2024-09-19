@@ -46,7 +46,7 @@ async function HeroSection(props: Props) {
           <RegisterLink>Sign up</RegisterLink>
         </Button>
       </div>
-      <div className="relative h-[700px] mt-10 w-full py-12 ">
+      <div className="relative h-[800px] mt-10 w-full py-12 ">
         <svg
           className="absolute -mt-30 blur-3xl -z-40"
           fill="none"
@@ -104,7 +104,7 @@ async function HeroSection(props: Props) {
           alt="hero image"
           fill
           priority
-          className="border-rounded-2xl shadow-2xl z-20 mx-auto"
+          className="border-rounded-2xl shadow-2xl z-20 mx-auto object-cover"
         />
       </div>
     </section>

@@ -257,8 +257,14 @@ export async function createPaymentSession() {
       },
     ],
     billing_address_collection: "auto",
-    success_url: "http://localhost:3000/dashboard/payment/success",
-    cancel_url: "http://localhost:3000/dashboard/payment/cancel",
+    success_url:
+      process.env.NODE_ENV === "production"
+        ? "https://saas-application-one.vercel.app/dashboard/payment/success"
+        : "http://localhost:3000/dashboard/payment/success",
+    cancel_url:
+      process.env.NODE_ENV === "production"
+        ? "https://saas-application-one.vercel.app/dashboard/payment/cancel"
+        : "http://localhost:3000/dashboard/payment/cancel",
   });
 
   return redirect(session.url!);
