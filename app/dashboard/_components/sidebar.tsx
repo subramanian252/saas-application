@@ -21,7 +21,7 @@ const navlinks = [
     Icon: Globe2,
   },
   {
-    name: "Users",
+    name: "Pricing",
     href: "/dashboard/pricing",
     Icon: DollarSign,
   },
@@ -32,8 +32,6 @@ function Sidebar(props: Props) {
 
   const pathname = usePathname();
 
-  console.log(pathname);
-
   return (
     <aside className="flex flex-col gap-y-3 border-r border-r-white/10 h-full p-5 bg-muted">
       {navlinks.map((link, index) => (
@@ -41,7 +39,9 @@ function Sidebar(props: Props) {
           <Button
             className={cn(
               "flex justify-start w-full gap-x-4 items-center rounded-md h-14",
-              pathname === link.href ? "bg-primary/70 text-white" : ""
+              pathname === link.href
+                ? "bg-primary/90 text-white hover:bg-primary hover:text-white"
+                : ""
             )}
             variant={"ghost"}
           >
